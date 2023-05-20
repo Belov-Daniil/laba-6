@@ -2,24 +2,23 @@
 from itertools import *
 
 
-fruits = ['Груша', 'Банан', 'Яблоко', 'Персик', 
-          'Манго', 'Гранат', 'Апельсин']
+fruits = ['Груша - 300 калорий', 'Банан - 400 каллорий', 'Яблоко - 150 калорий', 'Персик - 465 калорий', 
+          'Манго - 450 калорий', 'Гранат - 250 калорий', 'Апельсин - 333 калорий']
 
 
 days = ['Понедельник', 'Вторник', 'Среда',
         'Четверг', 'Пятница', 'Суббота', 'Воскресенье']
 
+fruits_list = list(permutations(fruits, fruits.__len__()))
 
-fruits_list = list(permutations(fruits, days.__len__()))
-days_list = list(permutations(days, days.__len__()))
+s = ''
 
-
-counter = 0
-for i in range(0, len(fruits_list)):
-        for j in range(0 , 6):
-                print(fruits_list[i][j] + " - " + days_list[i][j])
-        counter += 1
-        print('\n')
-
-print(counter)
+count =0
+for j in range(0, fruits_list.__len__()):
+    for i in range(0, 7):
+        s = days[i] + ": " + str(fruits_list[j][i])
+        print(s)
+        count += 1
+    print('\n')
+print('Возможных расстановок 7 фруктов по дням недели - ' + str(count))
     
